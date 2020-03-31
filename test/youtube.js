@@ -1,12 +1,12 @@
-
+var data = require('../env');
 module.exports = {
     'Youtube search' : function (browser) {
       browser
         .url('https://www.youtube.com')
         .waitForElementVisible('body')
         .assert.titleContains('YouTube')
-        .assert.visible('input[type=text]')
-        .setValue('input[type=text]', 'Starset - Monster')
+        .assert.visible('input[id=search]')
+        .setValue('input[id=search]', data.search)
         .assert.visible('button[id=search-icon-legacy]')
         .click('button[id=search-icon-legacy]')
         .waitForElementVisible('body')

@@ -1,54 +1,61 @@
 {
-    "src_folders" : ["tests"],
-    "output_folder" : "./reports",
-    "test_workers": true,
-    "selenium" : {
-      "start_process" : true,
-      "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar",
-      "log_path" : "./reports",
-      "host": "127.0.0.1",
-      "port" : 4444,
-      "cli_args" : {
-        "webdriver.chrome.driver" : "./node_modules/chromedriver/lib/chromedriver/chromedriver.exe",
-        "webdriver.gecko.driver" : "./node_modules/geckodriver/geckodriver.exe"
+  "src_folders" : ["tests"],
+  "globals_path": "nightwatch.conf.js",
+  "output_folder" : "./reports",
+  "test_workers": true,
+  "selenium" : {
+    "start_process" : true,
+    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar",
+    "log_path" : "./reports",
+    "host": "127.0.0.1",
+    "port" : 4444,
+    "cli_args" : {
+      "webdriver.chrome.driver" : "./node_modules/chromedriver/lib/chromedriver/chromedriver.exe",
+      "webdriver.gecko.driver" : "./node_modules/geckodriver/geckodriver.exe"
+    }
+  },
+
+  "test_settings" : {
+    "firefox" : {
+      "launch_url" : "http://google.com",
+      "selenium_port"  : 4444,
+      "selenium_host"  : "localhost",
+      "silent": true,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : ""
+      },
+      "desiredCapabilities": {
+        "browserName": "firefox",
+        "marionette": true,
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
       }
     },
-  
-    "test_settings" : {
-      "firefox" : {
-        "launch_url" : "http://google.com",
-        "selenium_port"  : 4444,
-        "selenium_host"  : "localhost",
-        "silent": true,
-        "screenshots" : {
-          "enabled" : true,
-          "path" : ""
-        },
-        "desiredCapabilities": {
-          "browserName": "firefox",
-          "marionette": true,
-          "javascriptEnabled": true,
-          "acceptSslCerts": true
-        }
-      },
+    "username" : "",
+    "access_key" : "",
 
-  
-      "chrome": {
-        "desiredCapabilities": {
-        "browserName": "chrome",
-        "javascriptEnabled": true,
-        "acceptSslCerts": true,
-        "chromeOptions": {
-          "args" : ["--no-sandbox"]
-        }
+
+    "chrome": {
+      "desiredCapabilities": {
+      "browserName": "chrome",
+      "javascriptEnabled": true,
+      "acceptSslCerts": true,
+      "chromeOptions": {
+        "args" : ["--no-sandbox"],
+        "w3c": false
       }
+    },
+    "webdriver": {
+      "use_legacy_jsonwire": false
     }
-      ,
-  
-      "edge" : {
-        "desiredCapabilities": {
-          "browserName": "MicrosoftEdge"
-        }
+  }
+    ,
+
+    "edge" : {
+      "desiredCapabilities": {
+        "browserName": "MicrosoftEdge"
       }
     }
   }
+}

@@ -1,0 +1,85 @@
+{
+  "src_folders" : ["test"],
+  "output_folder" : "reports",
+  "page_objects_path" : "",
+  "globals_path" : "nightwatch.conf.js",
+ 
+  "selenium" : {
+    "start_process" : false,
+    "server_path" : "",
+    "log_path" : "",
+    "host" : "hub.lambdatest.com",
+    "port" : 80,
+    "cli_args" : {
+      "webdriver.chrome.driver" : "",
+      "webdriver.ie.driver" : "",
+      "webdriver.firefox.profile" : ""
+    }
+  },
+ 
+  "test_workers" : {"enabled" : true, "workers" : "auto"},
+ 
+  "test_settings" : {
+    "default" : {
+      "launch_url" : "https://lambdatest.com",
+      "globals": {
+        "search" : "nightwatch js"
+      },
+      "selenium_port"  : 80,
+      "selenium_host"  : "hub.lambdatest.com",
+      "silent": false,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : ""
+      },
+      "username" : "ana.caluian26",
+      "access_key" : "pWXwuCeBhWlwM00cyT4Q1HtJpIpr2o4OLtxD72a8syQjMrwMHl",
+ 
+      "skip_testcases_on_fail": false,
+ 
+      "desiredCapabilities": {
+        "build":"Nightwatch-Selenium-Lambda",
+        "visual":true,
+        "video":true,
+        "console":true,
+        "network":true
+      }
+    },
+ 
+    "chrome": {
+      "desiredCapabilities": {
+        "platform": "Windows 10",
+        "browserName": "chrome",
+        "version": "80"
+      }
+    },
+    "firefox" : {
+      "desiredCapabilities": {
+        "platform": "Windows 10",
+        "browserName": "firefox",
+        "version": "60"
+      }
+    },
+    "edge" : {
+      "desiredCapabilities": {
+        "platform": "Windows 10",
+        "browserName": "MicrosoftEdge",
+        "version": "18"
+      }
+    },
+    "safari" : {
+      "desiredCapabilities": {
+          "platform": "macos 10.13",
+          "browserName": "safari",
+          "version": "11.0"
+      }
+      },
+      "opera" : {
+        "desiredCapabilities": {
+            "platform": "Windows 10",
+            "browserName": "opera",
+            "version": "67"
+        }
+        }   
+  }
+}
