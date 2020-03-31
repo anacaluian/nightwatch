@@ -1,6 +1,5 @@
 module.exports = (
   function (settings) {
-   console.log(settings["test_settings"]["firefox"]["username"])
    if (process.env.LT_USERNAME) {
      settings["test_settings"]["firefox"]["username"] = process.env.LT_USERNAME;
    }

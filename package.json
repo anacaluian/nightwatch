@@ -4,7 +4,7 @@
   "description": "automate web testing",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/nightwatch -e chrome test"
+    "test": "./node_modules/.bin/nightwatch -e chrome test/youtube.js"
   },
   "author": "",
   "license": "ISC",
