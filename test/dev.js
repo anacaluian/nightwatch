@@ -8,7 +8,7 @@ module.exports = {
           console.log('search placeholder:', result.value);
         })
         .setValue('input[name=q]', 'nightwatch')
-        .setValue('input[name=q]', browser.Keys.ENTER)
+        .setValue('input[name=q]',browser.Keys.RETURN)
         .pause(4000)
         .end();
     }

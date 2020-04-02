@@ -1,61 +1,82 @@
 {
-  "src_folders" : ["tests"],
-  "globals_path": "nightwatch.conf.js",
-  "output_folder" : "./reports",
-  "test_workers": true,
+  "src_folders" : ["test"],
+  "output_folder" : "reports",
+  "page_objects_path" : "",
+  "globals_path" : "nightwatch.conf.js",
+ 
   "selenium" : {
-    "start_process" : true,
-    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar",
-    "log_path" : "./reports",
-    "host": "127.0.0.1",
-    "port" : 4444,
+    "start_process" : false,
+    "server_path" : "",
+    "log_path" : "",
+    "host" : "hub.lambdatest.com",
+    "port" : 80,
     "cli_args" : {
-      "webdriver.chrome.driver" : "./node_modules/chromedriver/lib/chromedriver/chromedriver.exe",
-      "webdriver.gecko.driver" : "./node_modules/geckodriver/geckodriver.exe"
+      "webdriver.chrome.driver" : "",
+      "webdriver.ie.driver" : "",
+      "webdriver.firefox.profile" : ""
     }
   },
-
+ 
+  "test_workers" : {"enabled" : true, "workers" : "auto"},
+ 
   "test_settings" : {
-    "firefox" : {
-      "launch_url" : "http://google.com",
-      "selenium_port"  : 4444,
-      "selenium_host"  : "localhost",
-      "silent": true,
+    "default" : {
+      "launch_url" : "https://lambdatest.com",
+      "selenium_port"  : 80,
+      "selenium_host"  : "hub.lambdatest.com",
+      "silent": false,
       "screenshots" : {
         "enabled" : true,
         "path" : ""
       },
+      "username" : "ana.caluian26",
+      "access_key" : "pWXwuCeBhWlwM00cyT4Q1HtJpIpr2o4OLtxD72a8syQjMrwMHl",
+ 
+      "skip_testcases_on_fail": false,
+ 
       "desiredCapabilities": {
-        "browserName": "firefox",
-        "marionette": true,
-        "javascriptEnabled": true,
-        "acceptSslCerts": true
+        "build":"TSS",
+        "visual":true,
+        "video":true,
+        "console":true,
+        "network":true
       }
     },
-    "username" : "",
-    "access_key" : "",
-
-
+ 
     "chrome": {
       "desiredCapabilities": {
-      "browserName": "chrome",
-      "javascriptEnabled": true,
-      "acceptSslCerts": true,
-      "chromeOptions": {
-        "args" : ["--no-sandbox"],
-        "w3c": false
+        "platform": "Windows 10",
+        "browserName": "chrome",
+        "version": "80"
       }
     },
-    "webdriver": {
-      "use_legacy_jsonwire": false
-    }
-  }
-    ,
-
+    "firefox" : {
+      "desiredCapabilities": {
+        "platform": "Windows 10",
+        "browserName": "firefox",
+        "version": "60"
+      }
+    },
     "edge" : {
       "desiredCapabilities": {
-        "browserName": "MicrosoftEdge"
+        "platform": "Windows 10",
+        "browserName": "MicrosoftEdge",
+        "version": "18"
       }
-    }
+    },
+    "safari" : {
+      "desiredCapabilities": {
+          "platform": "macos 10.13",
+          "browserName": "safari",
+          "version": "11.0"
+      }
+      },
+      "opera" : {
+        "desiredCapabilities": {
+            "platform": "Windows 10",
+            "browserName": "opera",
+            "version": "67"
+        }
+        }   
   }
 }

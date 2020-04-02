@@ -11,7 +11,7 @@ const firefox = require('selenium-webdriver/firefox');
 
         await driver.manage().window().maximize();
 
-        await driver.wait(until.elementLocated(By.css('input')), 10000).sendKeys('the weeknd',Key.ENTER);
+        await driver.wait(until.elementLocated(By.css('input')), 10000).sendKeys('nightwatch js',Key.ENTER);
         await driver.sleep(5000);
 
         await driver.wait(until.elementLocated(By.id('thumbnail')), 10000).click();
@@ -23,16 +23,7 @@ const firefox = require('selenium-webdriver/firefox');
 
 
         await driver.executeScript("window.history.go(-1)");
-        await driver.sleep(2000);
-
-        await driver.findElement(By.className('style-scope ytd-button-renderer style-suggestive size-small')).click();
-        await driver.sleep(3000);
-
-        await driver.findElement(By.name('identifier')).sendKeys('ana.caluian26@gmail.com');
-        await driver.sleep(2000);
-        await driver.findElement(By.className('RveJvd snByac')).click();
-        await driver.sleep(2000);
-
+        await driver.sleep(2000)
      
     }catch(err){
         console.log(err.message);

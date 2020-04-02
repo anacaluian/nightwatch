@@ -1,85 +1,61 @@
 {
   "src_folders" : ["test"],
-  "output_folder" : "reports",
-  "page_objects_path" : "",
-  "globals_path" : "nightwatch.conf.js",
- 
+  "globals_path": "nightwatch.conf.js",
+  "output_folder" : "./reports",
+  "test_workers": true,
   "selenium" : {
-    "start_process" : false,
-    "server_path" : "",
-    "log_path" : "",
-    "host" : "hub.lambdatest.com",
-    "port" : 80,
+    "start_process" : true,
+    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.141.59.jar",
+    "log_path" : "./reports",
+    "host": "127.0.0.1",
+    "port" : 4444,
     "cli_args" : {
-      "webdriver.chrome.driver" : "",
-      "webdriver.ie.driver" : "",
-      "webdriver.firefox.profile" : ""
+      "webdriver.chrome.driver" : "./node_modules/chromedriver/lib/chromedriver/chromedriver.exe",
+      "webdriver.gecko.driver" : "./node_modules/geckodriver/geckodriver.exe"
     }
   },
- 
-  "test_workers" : {"enabled" : true, "workers" : "auto"},
- 
+
   "test_settings" : {
-    "default" : {
-      "launch_url" : "https://lambdatest.com",
-      "globals": {
-        "search" : "nightwatch js"
-      },
-      "selenium_port"  : 80,
-      "selenium_host"  : "hub.lambdatest.com",
-      "silent": false,
+    "firefox" : {
+      "launch_url" : "http://google.com",
+      "selenium_port"  : 4444,
+      "selenium_host"  : "localhost",
+      "silent": true,
       "screenshots" : {
         "enabled" : true,
         "path" : ""
       },
-      "username" : "ana.caluian26",
-      "access_key" : "pWXwuCeBhWlwM00cyT4Q1HtJpIpr2o4OLtxD72a8syQjMrwMHl",
- 
-      "skip_testcases_on_fail": false,
- 
       "desiredCapabilities": {
-        "build":"Nightwatch-Selenium-Lambda",
-        "visual":true,
-        "video":true,
-        "console":true,
-        "network":true
+        "browserName": "firefox",
+        "marionette": true,
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
       }
     },
- 
+    "username" : "",
+    "access_key" : "",
+
+
     "chrome": {
       "desiredCapabilities": {
-        "platform": "Windows 10",
-        "browserName": "chrome",
-        "version": "80"
+      "browserName": "chrome",
+      "javascriptEnabled": true,
+      "acceptSslCerts": true,
+      "chromeOptions": {
+        "args" : ["--no-sandbox"],
+        "w3c": false
       }
     },
-    "firefox" : {
-      "desiredCapabilities": {
-        "platform": "Windows 10",
-        "browserName": "firefox",
-        "version": "60"
-      }
-    },
+    "webdriver": {
+      "use_legacy_jsonwire": false
+    }
+  }
+    ,
+
     "edge" : {
       "desiredCapabilities": {
-        "platform": "Windows 10",
-        "browserName": "MicrosoftEdge",
-        "version": "18"
+        "browserName": "MicrosoftEdge"
       }
-    },
-    "safari" : {
-      "desiredCapabilities": {
-          "platform": "macos 10.13",
-          "browserName": "safari",
-          "version": "11.0"
-      }
-      },
-      "opera" : {
-        "desiredCapabilities": {
-            "platform": "Windows 10",
-            "browserName": "opera",
-            "version": "67"
-        }
-        }   
+    }
   }
 }
